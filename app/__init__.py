@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_socketio import SocketIO, join_room, leave_room, emit
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -346,11 +346,11 @@ def dashboard():
 @app.route("/chat", methods=["GET", "POST"])
 def chat():
     if request.method == "POST":
-        username = request.form["username"]
-        room = request.form["room"]
+        # username = request.form["username"]
+        # room = request.form["room"]
         # Store the data in session
-        session["username"] = username
-        session["room"] = room
+        # session["username"] = username
+        # session["room"] = room
         return render_template("chat.html", session=session)
     else:
         if session.get("username") is not None:
@@ -386,7 +386,9 @@ def register():
                 new_user = User(username, generate_password_hash(password))
                 db.session.add(new_user)
                 db.session.commit()
+                flash("Congratulations, you are now a registered user of blobber chat!")
                 return redirect(url_for("login"))
+
         else:
             error = "reCaptcha required."
     return render_template("register.html", error=error, site_key=site_key)
@@ -415,6 +417,7 @@ def login():
             if error is None:
                 session["username"] = username
                 return redirect(url_for("dashboard"))
+
         else:
             error = "reCaptcha required."
     return render_template("login.html", error=error, site_key=site_key)
@@ -439,6 +442,11 @@ def about():
 @app.route("/quiz")
 def questionnaire():
     return render_template("questions.html", title="questionnaire", url="quiz")
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "<h1> Not Found</h1>", 404
 
 
 # @app.route("/loading")

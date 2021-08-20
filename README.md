@@ -8,17 +8,24 @@ Pod 335
 
 We live in a pandemic world where social distancing and germaphobia is the new social norm. 
 Finding friends is becoming more difficult and strangers are becoming stranger! Fear not! Blobber's got your
-back. Blobber will find friends for you so you'll have a friend to talk to anywhere, anytime.
+back. Blobber will find friends for you so you'll have a friend to talk to anywhere, anytime online.
 
 ## Description
 
-Our group worked on a webapp that would allow people to meetup and chat based on 
-similiar interests. A user would join our service, answer a few questions and be
-paired with someone who have similiar interests. We used socketio for the chatroom; 
-HTML/CSS for the design; Postgres for our backend database; Flask for our web
-framework; Nginx to reverse proxy; Created a blobber.tech domain. Contained our
-application and use cAdvisor and Prometheus for logging and monitoring. Lastly, 
-we use google reCaptcha to help with replay attempts. 
+Our group worked on a webapp that would allow people to meetup and chat. A user 
+would register to our service, and then sign-in, and join an exciting room. 
+
+ - We used socketio for the chatroom
+ - HTML / CSS for front-end design
+ - Postgres for our backend database
+ - Flask for our web framework
+ - Nginx to reverse proxy to connect Flask
+ - Created a blobber.tech domain
+ - Contained our webapp, nginx and database for security and efficiency 
+ - Use cAdvisor, Prometheus and grafana for monitoring containers in real time
+ - Created a custom CI/CD pipeline with Github Actions for testing, linting
+ - Deployed on AWS with domain name and ip blocking
+ - Use google reCaptcha to help with replay attempts
 
 ## Visuals 
 **updated 8/17/2021
@@ -28,8 +35,11 @@ Home Page
 Login
 ![image](https://user-images.githubusercontent.com/51943194/129788442-ed820c5a-6b32-4534-8303-1caa0fa3c3fc.png)
 
+Dashboard
+![image](https://user-images.githubusercontent.com/51943194/130191874-1df00dac-3d96-4c46-8b3d-c671d891fd21.png)
+
 Chatroom
-![image](https://user-images.githubusercontent.com/51943194/129834857-2c57f44f-6387-4654-ad6a-9eb95d958cfa.png)
+![image](https://user-images.githubusercontent.com/51943194/130191949-d2607105-4fb7-4ec1-a870-1e22b7c974bd.png)
 
 AWS Instance
 ![image](https://user-images.githubusercontent.com/51943194/129834519-62245360-8a78-41d4-ab93-f157b526c64a.png)
@@ -40,23 +50,28 @@ cAdvisor
 Prometheus
 ![image](https://user-images.githubusercontent.com/51943194/129845143-29dfd02d-ab18-4919-a76d-98f7bb9f7bb8.png)
 
+Grafana Dashboard
+![image](https://user-images.githubusercontent.com/51943194/130197840-aef1d1a3-7a4d-4646-ad5e-f7e9ea91694f.png)
+
+Grafana Dashboard 2
+![image](https://user-images.githubusercontent.com/51943194/130197947-33246c0d-9728-4969-b621-95129d360caa.png)
+
 
 ## Technologies Used
 
 - Python-Flask
 - HTML / CSS
 - SocketIO
-- HTML/CSS
 - Postgres
 - NGINX
 - cAdvisor
 - Prometheus
-- Redis
 - Docker containers
 - reCaptcha
-- Github Actions
+- Github Actions (CI/CD)
 - AWS instance
 - Hosted on .tech domain
+- IP blocking, domain name only
 
 
 ## Installation

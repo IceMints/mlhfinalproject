@@ -41,8 +41,8 @@ services:
     container_name: cadvisor
     image: gcr.io/cadvisor/cadvisor:latest
     restart: unless-stopped
-    ports:
-      - 8080:8080
+#    ports:
+#      - 8080:8080
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:rw
@@ -52,8 +52,9 @@ services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
-    ports:
-      - 9090:9090
+    restart: unless-stopped
+#    ports:
+#      - 9090:9090
     command:
       - --config.file=/etc/prometheus/prometheus.yml
     volumes:
@@ -61,12 +62,28 @@ services:
     depends_on:
       - cadvisor
           
-  redis:
-    image: redis:latest
-    container_name: redis
-    ports:
-      - 6379:6379
+#  redis:
+#    image: redis:latest
+#    container_name: redis
+#    ports:
+#      - 6379:6379
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    restart: unless-stopped
+#    ports:
+#      - 3000:3000
+    volumes:
+      - grafana_storage:/var/lib/grafana
+    depends_on:
+      - prometheus
+    environment:
+      - GF_SERVER_ROOT_URL=http://blobber.tech/grafana/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_SERVER_DOMAIN=blobber.tech
 
 volumes:
   nginx_secrets:
   mydatabase:
+  grafana_storage:

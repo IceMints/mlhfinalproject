@@ -4,7 +4,7 @@ EXITSTATUS=0
 
 # website data
 URL="https://blobber.tech"
-PAGES="/ /dashboard /login /register /faq /about"
+PAGES="/ /dashboard /login /register /faq /about /chat"
 METHODS="GET POST"
 
 # Testing endpoints with request methods
@@ -20,6 +20,8 @@ elif [[ $GETVAR == 400 ]]; then
 echo $PAGE ${white}$METHOD${reset_color} $GETVAR ${purple}"Bad Request"${reset_color}
 elif [[ $GETVAR == 405 ]]; then 
 echo $PAGE ${white}$METHOD${reset_color} $GETVAR ${yellow}'METHOD NOT ALLOWED'${reset_color}
+elif [[ $GETVAR == 301 ]]; then
+echo $PAGE ${white}$METHOD${reset_color} $GETVAR ${purple}"Re-direct"${reset_color}
 else
 echo $PAGE ${white}$METHOD${reset_color} $GETVAR ${red}'ERROR'${reset_color}
 EXITSTATUS=1

@@ -15,17 +15,22 @@ back. Blobber will find friends for you so you'll have a friend to talk to anywh
 Our group worked on a webapp that would allow people to meetup and chat. A user 
 would register to our service, and then sign-in, and join an exciting room. 
 
- - We used socketio for the chatroom
- - HTML / CSS for front-end design
- - Postgres for our backend database
+ - Used socketio for the chatroom instant messenging
+ - Used session-cookies to ensure only login-user have access 
+ - HTML / CSS with a splash of javascript for front-end design
+ - Postgres for our backend database connected via SqlAlchemy ORM to store user registeration data
  - Flask for our web framework
- - Nginx to reverse proxy to connect Flask
+ - Gunicorn to load wsgi webserver
+ - Configure Nginx to reverse proxy
  - Created a blobber.tech domain
- - Contained our webapp, nginx and database for security and efficiency 
- - Use cAdvisor, Prometheus and grafana for monitoring containers in real time
- - Created a custom CI/CD pipeline with Github Actions for testing, linting
- - Deployed on AWS with domain name and ip blocking
+ - Contained our webapp, nginx and database for security and efficiency in docker
+ - Used docker-compose yaml file to configurae docker containers to interact with each other
+ - Use cAdvisor, Prometheus and grafana for monitoring container resource usage in real time
+ - Created a custom CI/CD pipeline with Github Actions and workflow for testing, linting, webhook notification and deployment
+ - Deployed on AWS with domain name, ip blocking and firewalld
  - Use google reCaptcha to help with replay attempts
+ - Tried Apache docker image inplace of Nginx when troubleshooting SocketIO
+ - Troubleshooting with Systemctl, Journalctl, Docker-compose logs, free and df
 
 ## Visuals 
 **updated 8/17/2021
@@ -41,7 +46,7 @@ Dashboard
 Chatroom
 ![image](https://user-images.githubusercontent.com/51943194/130191949-d2607105-4fb7-4ec1-a870-1e22b7c974bd.png)
 
-AWS Instance
+AWS Instance from t2.micro -> t2.small
 ![image](https://user-images.githubusercontent.com/51943194/129834519-62245360-8a78-41d4-ab93-f157b526c64a.png)
 
 cAdvisor
@@ -58,6 +63,10 @@ Grafana Dashboard 2
 
 Containers
 ![image](https://user-images.githubusercontent.com/51943194/130271390-65ecb374-384c-4409-a9f0-9f442e83eb32.png)
+
+Discord Webhook
+![image](https://user-images.githubusercontent.com/51943194/130304013-a84b42fc-8934-47c3-964a-2795fe9bcf0c.png)
+
 
 
 

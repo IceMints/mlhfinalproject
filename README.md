@@ -41,9 +41,11 @@ Login
 ![image](https://user-images.githubusercontent.com/51943194/129788442-ed820c5a-6b32-4534-8303-1caa0fa3c3fc.png)
 
 Dashboard
+
 ![image](https://user-images.githubusercontent.com/51943194/130191874-1df00dac-3d96-4c46-8b3d-c671d891fd21.png)
 
 Chatroom
+
 ![image](https://user-images.githubusercontent.com/51943194/130191949-d2607105-4fb7-4ec1-a870-1e22b7c974bd.png)
 
 AWS Instance from t2.micro -> t2.small
@@ -67,7 +69,9 @@ Containers
 Discord Webhook
 ![image](https://user-images.githubusercontent.com/51943194/130304013-a84b42fc-8934-47c3-964a-2795fe9bcf0c.png)
 
+Google reCaptcha API
 
+![Screenshot_2021-09-02_15-19-21](https://user-images.githubusercontent.com/51943194/131923662-5dda07f2-b386-42de-b324-ac10477afffb.png)
 
 
 ## Technologies Used
